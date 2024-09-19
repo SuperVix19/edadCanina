@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,10 +29,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String edad = edadedit.getText().toString();
-                int edadint = Integer.parseInt(edad);
-                int resultado = edadint*7;
-                String resultadostring = "La edad del canino es: " + resultado + " años";
-                resulttext.setText(resultadostring);
+                if (!edad.isEmpty()){
+                    int edadint = Integer.parseInt(edad);
+                    int resultado = edadint*7;
+                    String resultadostring = "La edad del canino es: " + resultado + " años";
+                    resulttext.setText(resultadostring);
+                }else {
+                    Toast.makeText(MainActivity.this, "Agregue una edad: ", Toast.LENGTH_LONG).show();
+                }
+
+
+
             }
         });
     }
